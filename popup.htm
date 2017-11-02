@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>Popup</title>
+<style type="text/css">
+html{font:14px/1.5 tahoma,arial,宋体b8b\4f53}
+p{margin: 0;}
+body{width:350px;}
+
+.notice-top{text-align:center}
+.notice-top .fail a{color:#B94A48;font-weight:bold;}
+.notice-top .success a{color:#468847;font-weight:bold;}
+.notice-top .success,
+.notice-top .fail{border-radius:5px;line-height:2em;border-radius:5px;}
+
+.miao-summary{margin-bottom:5px;}
+.miao-time{font-weight:bold;color:red;}
+.miao-sponsor{margin-bottom:5px;line-height:1.5em;text-align: center;padding: 5px 0;}
+
+.miao-ads,
+.miao-list{list-style:none;padding:0;margin:0; margin-bottom:10px; }
+.miao-list .loading{text-align:center;}
+.miao-list .noItems{text-align: center;margin: 70px 0;}
+
+.miao-ads{
+    border:1px solid #eee;
+    border-radius: 2px;
+    position: relative;
+}
+.miao-ads .ads-notice{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: #ccc;
+    font-size:5px;
+    background: #eee;
+    padding: 2px 5px;
+    border-top-left-radius: 5px;
+}
+
+.miao-item{padding:5px;border:1px solid rgba(0,0,0,0);border-radius:3px;}
+.miao-item:hover{border:1px solid #ccc;}
+.miao-item:hover .miao-item-go{display:block}
+.miao-item-prices{margin-top:8px;color:#aaa;}
+.miao-item-gallery{float:left;margin-right:10px;}
+.miao-item-detail{list-style:none;padding:0;}
+.miao-item-go{display:none}
+.miao-item-miaoPrice{color:red;}
+
+.miaoMore{border:1px solid transparent;border-radius:5px;color:#2f96b4;text-decoration:none;display:block;text-align:center;line-height:2em;font-size:12px;}
+.miaoMore:hover{border:1px solid #2f96b4;background-color: rgba(47, 150, 180, 0.07);}
+
+.footer{text-align:center;margin-top: 10px;}
+.copyright{font-size:12px;color:#bbb;}
+.seperator{opacity: 0.4}
+.copyright a{color:#ccc;text-decoration: none;}
+.copyright a:hover{text-decoration:underline;}
+/*.donate{display:inline-block;height:33px;line-height:33px;padding-right:50px;margin-left:8px;background:url('assets/img/ico_alipay.jpg') no-repeat center right;}*/
+
+/* base */
+a:focus{outline:none;}
+.fn-hide{display:none;}
+.success{border:1px solid #DFF0D8;background-color:#DFF0D8;color:#468847;}
+.fail{color: #B94A48;background-color: #F2DEDE;border-color: #EED3D7;}
+.clearfix:before,
+.clearfix:after{content:" ";display:table;}
+.clearfix{clear:both;overflow:hidden;/*why?*/}
+
+</style>
+</head>
+<body>
+<header class="notice-top" id="status">
+    <p class="loading"> <img src="assets/img/loading.gif" width="20" alt="loading" /></p>
+    <p class="success fn-hide">Miao - 助手正在运行 <a href="options.htm?ref=optSuccessSettings" target="_blank">设置</a></p>
+    <p class="fail fn-hide">Miao - 助手未运行，点 <a href="options.htm?ref=optFailSettings" target="_blank" >这里</a> 设置</p>
+    <p class="fail update fn-hide">有新版本可用，请<a href="http://miao.enjoyapps.org/forum/thread-8-1-1.html" target="_blank">更新</a>！</p>
+</header>
+<section>
+    <div class="miao-sponsor" id="sponsor"></div>
+</section>
+<section class="miao-content">
+    <ul id="J-ads" class="miao-ads fn-hide">
+        <li class="ads-notice">赞助商</li>
+    </ul>
+    <div class="miao-summary" id="J-miaoSummary"><span id="J-miaoStartTime" class="miao-time">00:00</span> 即将开秒：</div>
+    <ul class="miao-list" id="J-miaoList">
+        <li class="loading"><img src="assets/img/loading.gif" width="20" alt="loading" /></li>
+        <li class="noItems fn-hide">暂无秒杀推荐</li>
+    </ul>
+</section>
+<section>
+    <a class="miaoMore" href="#" target="_blank" >更多热门推荐</a>
+</section>
+<footer class="footer">
+    <img class="seperator" src="assets/img/separator.png" alt="">
+    <p class="copyright">
+        <a href="http://weibo.com/goodthought" target="_blank">@秒杀助手</a> 
+        <a href="http://miao.enjoyapps.org/howtouse.php" target="_blank">使用帮助</a> 
+        <a href="http://miao.enjoyapps.org/forum" target="_blank">用户论坛</a> 
+    </p>
+</footer>
+
+<script type="text/x-template" id="J-dataTemplate">
+<li class="miao-item clearfix">
+    <div class="miao-item-gallery"><a href="{%link}" target="_blank"><img src="{%img}" alt="" width="80" height="80" /></a></div>
+    <ul class="miao-item-detail">
+        <li><a href="{%link}" target="_blank">{%title}</a></li>
+        <li class="miao-item-prices">秒杀价：<span class="miao-item-miaoPrice">{%miaoPrice}</span> 元 <span class="">原价：<del>{%price}</del> 元</span> </li>
+    </ul>
+</li>
+</script>
+
+<script type="text/javascript" src="assets/js/base.js"></script>
+<script type="text/javascript" src="popup.js"></script>
+</body>
+</html>

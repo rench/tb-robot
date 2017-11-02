@@ -1,0 +1,51 @@
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Settings</title>
+
+<style type="text/css">
+.content{width:908px;padding:10px 20px 40px;margin:0 auto;border:1px dashed #444;border-radius:5px;color:#222;}
+h2,h3{line-height:2em;border-bottom:2px solid #dfdfdf;font-family:Hiragino Sans GB,"黑体","微软雅黑"}
+#resultInfo{color:#406C12;margin-left:10px;font-size:12px;}
+.fm-item{margin-bottom:10px;}
+.fn-hide{display:none;}
+.banner{width:950px;margin:0 auto;}
+
+</style>
+
+<script type="text/javascript" src="assets/js/base.js"></script>
+</head>
+<body>
+<div class="content">
+	<h2>Miao - 设置</h2>	
+	<form id="settingForm">
+		<div class="fm-item">
+			<input type="checkbox" id="isAutoStart" />
+			<label for="isAutoStart">默认开启</label>
+		</div>
+        <div class="fm-item">
+			<input type="checkbox" id="isShowNotification" />
+			<label for="isShowNotification">活动开始前10分钟提醒</label>
+		</div>
+		<div class="fm-item">
+			<label for="miaoFrequency">自动抢宝每秒刷新</label>
+			<input type="input" id="miaoFrequency" size="5" maxLength="2" />
+			次（推荐4次）
+		</div>
+		<div class="fm-item">
+			<label for="reminderTime">秒杀前</label>
+			<input type="input" id="reminderTime" size="5" maxLength="2" />
+			分钟提醒我
+		</div>
+
+    <div id="resultInfo"></div>
+	</form>
+</div>
+
+<div class="fn-hide banner" id="J-banner"></div>
+
+<script type="text/javascript" src="options.js" charset="utf-8" ></script>
+
+</body>
+</html>
+

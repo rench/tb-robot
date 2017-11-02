@@ -1,0 +1,42 @@
+{
+"name": "自动提交订单",
+"version": "1.0",
+"manifest_version": 2,
+"description": "订单提交页面,自动提交.依然需要人工点击立即购买.",
+"permissions": [ 
+    "tabs", 
+    "contextMenus", 
+    "notifications",
+    "management",
+    "http://*/*", 
+    "https://*/*" 
+],
+"browser_action": {
+    "default_icon": "ico.png",
+    "default_title":"自动提交订单",
+    "default_popup": ""
+},
+"background" : {
+    "scripts":["assets/js/base.js","bg.js"]
+},
+"options_page": "options.htm",    
+"icons": { 
+    "16": "ico.png", 
+    "48": "ico.png", 
+    "128": "ico.png" 
+},
+"web_accessible_resources": [
+    "ico.png"
+],
+"content_scripts": [
+    {
+        "matches": ["*://*.taobao.com/*","*://*.tmall.com/*","*://*.enjoyapps.org/miaotest.htm*"],
+        "js": ["assets/js/base.js", "miao.js"],
+        "run_at":"document_end"
+    }
+],
+"content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
+"update_url":"http://localhost/crx/updates.xml",
+"homepage_url": "http://localhost/"
+}
+
