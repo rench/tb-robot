@@ -13,13 +13,13 @@ function findAndCommit() {
     }
 }
 function auto() {
-    if (location.href.indexOf('buy.tmall.com/order/confirm_order.htm') > -1) {
+    if (location.href.indexOf('buy.tmall.com/order/confirm_order.htm') > -1 || location.href.indexOf('buy.taobao.com/auction/buy_now.jhtml') > -1) {
         //if (location.href.indexOf('buyertrade.taobao.com') > -1) {
         findAndCommit();
     }
     let start_time, end_time, server_time;
     let script2 = document.createElement('script');
-    script2.innerHTML = 'function adjust_time(json){console.log(new Date(json.time*1000));}';
+    script2.innerHTML = 'function adjust_time(json){console.log(new Date(json.time*1000));console.log(new Date());}';
     document.body.appendChild(script2);
     let script = document.createElement('script')
     script.src = 'https://t.alicdn.com/t/gettime?callback=adjust_time&_ksTS=' + new Date().valueOf()

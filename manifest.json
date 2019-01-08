@@ -30,7 +30,7 @@
 ],
 "content_scripts": [
     {
-        "matches": ["*://*.taobao.com/*","*://*.tmall.com/*","*://*.enjoyapps.org/miaotest.htm*"],
+        "matches": ["*://*.taobao.com/*","*://*.tmall.com/*","*://*.enjoyapps.org/miaotest.htm*","*://*.suning.com/*","*://*.jd.com/*"],
         "js": ["assets/js/base.js", "miao.js"],
         "run_at":"document_end"
     }
